@@ -18,7 +18,7 @@ To build and run the TestKaliLinux container, follow these steps:
 1. Clone this repository:
 
    ```shell
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/fazrul96/Docker-Collection.git
    ```
 
 2. Navigate to the `TestKaliLinux` folder:
@@ -58,7 +58,7 @@ To build and run the TestUbuntu container, follow these steps:
 1. Clone this repository:
 
    ```shell
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/fazrul96/Docker-Collection.git
    ```
 
 2. Navigate to the `TestUbuntu` folder:
