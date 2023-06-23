@@ -1,6 +1,10 @@
+# Use the official Ubuntu base image
 FROM ubuntu:latest
 
-# Install NGINX and additional packages
+# Set the working directory inside the container
+WORKDIR /app
+
+# Update the package lists and install necessary packages
 RUN apt-get update && \
     apt-get install -y \
     nginx \
@@ -8,17 +12,11 @@ RUN apt-get update && \
     curl \
     && apt-get clean
 
-# Remove default NGINX configuration
-RUN rm /etc/nginx/sites-enabled/default
-
-# Copy custom NGINX configuration
-# COPY nginx.conf /etc/nginx/nginx.conf
-
-# Copy website files
-# COPY index.html /var/www/html/index.html
+# Copy Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose ports
 EXPOSE 80
 
-# Start NGINX service
+# Start Nginx service
 CMD ["nginx", "-g", "daemon off;"]
