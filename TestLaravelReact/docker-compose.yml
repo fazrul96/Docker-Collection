@@ -1,31 +1,31 @@
 version: "3"
 services:
-  backend:
+  server:
     build:
-      context: ./backend
-      dockerfile: backend/Dockerfile
+      context: ./dockerapp-server
+      dockerfile: Dockerfile
+    volumes:
+      - ./dockerapp-server:/var/www/html
     ports:
       - 8000:80
-    volumes:
-      - ./backend:/var/www/html
     depends_on:
       - database
-
-  frontend:
+  web:
     build:
-      context: ./frontend
-      dockerfile: frontend/Dockerfile
+      context: ./dockerapp-web
+      dockerfile: Dockerfile
+    volumes:
+      - ./dockerapp-web:/app
     ports:
       - 3000:3000
-    volumes:
-      - ./frontend:/app
-
   database:
     image: mysql:5.7
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: secret
-    ports:
-      - 3306:3306
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_username
+      - MYSQL_PASSWORD=your_password
+      - MYSQL_ROOT_PASSWORD=your_root_password
     volumes:
-      - ./database:/var/lib/mysql
+      - db_data:/var/lib/mysql
+volumes:
+  db_data:
