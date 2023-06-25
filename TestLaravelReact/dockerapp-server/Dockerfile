@@ -1,5 +1,5 @@
 # Use the official PHP image with Apache as the base image
-FROM php:7.4-apache
+FROM php:8.1-apache
 
 # Set the working directory in the container
 WORKDIR /var/www/html
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libonig-dev \
     libxml2-dev \
+    nano \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
