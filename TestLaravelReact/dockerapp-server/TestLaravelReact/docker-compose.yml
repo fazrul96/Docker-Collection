@@ -1,0 +1,39 @@
+version: "3"
+services:
+  server:
+    build:
+      context: ./dockerapp-server
+      dockerfile: Dockerfile
+    volumes:
+      - ./dockerapp-server:/var/www/html
+    ports:
+      - 8080:80
+    depends_on:
+      - database
+    networks: 
+      - spora-network
+  web:
+    build:
+      context: ./dockerapp-web
+      dockerfile: Dockerfile
+    volumes:
+      - ./dockerapp-web:/app
+    ports:
+      - 3000:3000
+  database:
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_username
+      - MYSQL_PASSWORD=your_password
+      - MYSQL_ROOT_PASSWORD=your_root_password
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    networks: 
+      - spora-network
+volumes:
+  db_data:
+networks:
+  spora-network:
+    driver: bridge

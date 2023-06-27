@@ -1,0 +1,11 @@
+version: "3"
+services:
+  kali:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./my-scripts:/root/scripts
+    ports:
+      - "8080:80"
+    command: tail -f /dev/null
