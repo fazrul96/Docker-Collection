@@ -1,0 +1,34 @@
+FROM jenkins/jenkins:2.401.2-jdk17
+
+USER root
+
+RUN apt-get update && apt-get install -y lsb-release
+
+RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
+  https://download.docker.com/linux/debian/gpg
+  
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
+
+RUN apt-get update && apt-get install -y docker-ce-cli
+
+# Import SSL certificate and update Jenkins plugin URL
+# RUN mkdir -p /usr/local/share/ca-certificates
+# COPY updates_jenkins_io.crt /usr/local/share/ca-certificates/
+# RUN chmod 644 /usr/local/share/ca-certificates/updates_jenkins_io.crt
+# RUN update-ca-certificates
+# https://updates.jenkins.io/dynamic-stable-2.401.1/update-center.json
+# RUN curl -k -o update-center.txt https://updates.jenkins.io/dynamic-stable-2.401.1/update-center.json
+
+USER jenkins
+
+# Install Jenkins plugins using the local update-center.txt file
+# RUN jenkins-plugin-cli --plugins "blueocean docker-workflow" -f update-center.txt
+RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
+
+# Expose the necessary ports and start Jenkins
+EXPOSE 8080
+# RUN -p 8080:8080 --name=jenkins-master -d jenkins/jenkins
+# CMD ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]
