@@ -14,3 +14,12 @@ docker save -o ~/docker-jenkins-backup.tar docker-jenkins-backup
 Step 5: Pushing Image to Docker Hub
 docker login
 docker push docker-jenkins-backup:latest
+
+
+Permission Root
+
+winpty docker exec -it --user root jenkins-blueocean bash
+
+chown -R root:root /var/jenkins_home
+
+exit

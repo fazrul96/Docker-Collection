@@ -9,8 +9,9 @@ Run a docker:dind Docker image
 
 3. docker build -t myjenkins-blueocean:2.401.3-1 .
 
+# Change DOCKER_TLS_VERIFY=1 if want to use SSL, remove this if in prod --user root
 Run your own myjenkins-blueocean:2.401.3-1 image as a container in Docker using the following docker run command:
-4. docker run --name jenkins-blueocean --restart=on-failure --detach --network jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=0 --volume jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro --publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:2.401.3-1
+4. docker run --user root --name jenkins-blueocean --restart=on-failure --detach --network jenkins --env DOCKER_HOST=tcp://docker:2376 --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=0 --volume jenkins-data:/var/jenkins_home --volume jenkins-docker-certs:/certs/client:ro --publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:2.401.3-1
 
 5. drap and drop skip-certificate-check.hpi
 cd var/jenkins_home/plugins
