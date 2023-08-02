@@ -1,0 +1,5 @@
+docker container ls
+
+docker commit -p <container-id> docker-jenkins-backup
+
+docker save -o ~/docker-jenkins-backup.tar docker-jenkins-backup
