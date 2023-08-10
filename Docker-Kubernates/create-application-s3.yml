@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio
+spec:
+  selector:
+    matchLabels:
+      run: minio-s3
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: minio-s3
+    spec:
+      containers:
+        - name: minio
+          image: minio/minio
+          ports:
+            - containerPort: 9000  # Change from 8080 to the desired port
+              protocol: TCP
+            - containerPort: 9001  # Change from 8080 to the desired port
+              protocol: TCP
+          command:
+            - minio
+          args:
+            - server
+            - /data
+          env:
+            - name: MINIO_ACCESS_KEY
+              value: minioadmin
+            - name: MINIO_SECRET_KEY
+              value: minioadmin

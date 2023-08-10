@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: selenium-ingress
+spec:
+  rules:
+    - host: kubernates-selenium-test.mfzrl.cyou  # Replace with your desired hostname
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: selenium
+                port:
+                  number: 4444
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: selenium
+                port:
+                  number: 7900

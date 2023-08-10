@@ -1,0 +1,25 @@
+Step 1: Create a Docker Container
+docker run -it ubuntu bash
+
+Step 2: Get the Container ID
+docker container ls
+docker start <container-id>
+
+Step 3: Commit the Docker Container
+docker commit -p <container-id> docker-jenkins-backup
+
+Step 4: Saving backup as a Tar file
+docker save -o ~/docker-jenkins-backup.tar docker-jenkins-backup
+
+Step 5: Pushing Image to Docker Hub
+docker login
+docker push docker-jenkins-backup:latest
+
+
+Permission Root
+
+winpty docker exec -it --user root jenkins-blueocean bash
+
+chown -R root:root /var/jenkins_home
+
+exit
