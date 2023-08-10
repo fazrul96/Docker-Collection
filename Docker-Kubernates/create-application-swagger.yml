@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swagger
+spec:
+  selector:
+    matchLabels:
+      run: swagger-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: swagger-ui
+    spec:
+      containers:
+        - name: swagger
+          image: swaggerapi/swagger-ui
+          ports:
+            - containerPort: 8080  # Change from 8080 to the desired port
+              protocol: TCP

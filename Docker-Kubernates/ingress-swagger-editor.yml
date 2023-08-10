@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: swagger-editor-ingress
+spec:
+  rules:
+    - host: kubernates-swagger-editor-test.mfzrl.cyou  # Replace with your desired hostname
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: swagger-editor
+                port:
+                  number: 8081

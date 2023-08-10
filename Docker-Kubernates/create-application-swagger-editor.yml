@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swagger-editor
+spec:
+  selector:
+    matchLabels:
+      run: swagger-editor-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: swagger-editor-ui
+    spec:
+      containers:
+        - name: swagger-editor
+          image: swaggerapi/swagger-editor
+          ports:
+            - containerPort: 8081  # Change from 8080 to the desired port
+              protocol: TCP
