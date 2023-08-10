@@ -16,5 +16,5 @@ spec:
         - name: swagger-editor
           image: swaggerapi/swagger-editor
           ports:
-            - containerPort: 8081  # Change from 8080 to the desired port
+            - containerPort: 8080  # Change from 8080 to the desired port
               protocol: TCP

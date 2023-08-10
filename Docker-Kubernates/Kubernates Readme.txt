@@ -92,7 +92,13 @@ C:\Windows\System32\drivers\etc
 <cluster-ip>-kubernetes IP
 10.96.0.1       kubernates-hello-world-test.mfzrl.cyou
 10.96.0.1 		kubernates-swagger-test.mfzrl.cyou
+10.96.0.1 		kubernates-swagger-editor-test.mfzrl.cyou
 10.96.0.1		kubernates-grafana-test.mfzrl.cyou
+10.96.0.1		kubernates-prometheus-test.mfzrl.cyou
+10.96.0.1		kubernates-selenium-test.mfzrl.cyou
+10.96.0.1		kubernates-s3-test.mfzrl.cyou
+10.96.0.1		kubernates-jenkins-test.mfzrl.cyou
+
 10.96.0.1       jenkins-test.mfzrl.cyou
 10.96.0.1       grafana-test.mfzrl.cyou
 10.96.0.1       prometheus-test.mfzrl.cyou

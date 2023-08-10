@@ -20,3 +20,13 @@ spec:
               protocol: TCP
             - containerPort: 9001  # Change from 8080 to the desired port
               protocol: TCP
+          command:
+            - minio
+          args:
+            - server
+            - /data
+          env:
+            - name: MINIO_ACCESS_KEY
+              value: minioadmin
+            - name: MINIO_SECRET_KEY
+              value: minioadmin
