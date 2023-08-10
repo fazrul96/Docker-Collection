@@ -1,92 +1,32 @@
-# Docker Collection
+### Docker-Cypress
+Collection of Docker configurations for running [Cypress](https://www.cypress.io/) end-to-end tests in isolated environments. Ensure consistent and reproducible testing across various setups with Docker.
 
-This repository contains a collection of Docker configurations for different purposes. Each folder represents a specific Docker configuration.
+### Docker-Grafana
+Explore the power of [Grafana](https://grafana.com/) for visualizing and monitoring data using Docker. Effortlessly set up dynamic and interactive dashboards for your applications and services.
 
-## Table of Contents
+### Docker-Jenkins
+Get started with [Jenkins](https://www.jenkins.io/) using Docker for streamlined automation of your development workflows. This collection provides ready-to-use Docker configurations for setting up your continuous integration and delivery pipelines.
 
-- [TestKaliLinux](#testkalilinux)
-- [TestUbuntu](#testubuntu)
+### Docker-Kubernetes
+Utilize Docker for orchestrating applications within [Kubernetes](https://kubernetes.io/) clusters. Simplify the deployment, scaling, and management of containerized applications using these Docker-based Kubernetes setups.
 
-## TestKaliLinux
+### Docker-Rancher
+Experience simplified [Rancher](https://rancher.com/) management through Docker. Deploy, manage, and scale containerized applications seamlessly in various environments using Rancher's user-friendly interface.
 
-This Docker configuration sets up a Kali Linux environment with additional tools and configurations commonly used in penetration testing and security assessments.
+### Docker-S3
+Effortlessly set up an [S3-compatible storage](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html) solution using Docker. Store and retrieve data reliably in your applications with this Docker-based S3 setup.
 
-### Usage
+### Docker-Selenium
+Facilitate browser automation and testing using [Selenium](https://www.selenium.dev/) with Docker. Spin up Selenium instances in containers for cross-browser testing and web automation tasks.
 
-To build and run the TestKaliLinux container, follow these steps:
+### Docker-Swagger
+Generate interactive and user-friendly API documentation using [Swagger](https://swagger.io/) and Docker. Create clear and comprehensive API documentation that makes it easier for developers to understand and consume your services.
 
-1. Clone this repository:
+### TestKaliLinux
+Explore and test various security and penetration testing tools using [Kali Linux](https://www.kali.org/). This collection provides resources and configurations for setting up and experimenting with Kali Linux environments.
 
-   ```shell
-   git clone https://github.com/fazrul96/Docker-Collection.git
-   ```
+### TestLaravelReact
+Combine the power of the [Laravel](https://laravel.com/) PHP framework with [React](https://reactjs.org/) frontend using this test collection. Explore interactions between Laravel backend and React frontend for dynamic web application development.
 
-2. Navigate to the `TestKaliLinux` folder:
-
-   ```shell
-   cd TestKaliLinux
-   ```
-
-3. Build the Docker image:
-
-   ```shell
-   docker build -t test-kali-linux .
-   ```
-
-4. Run the Docker container:
-
-   ```shell
-   docker run -d --name test-kali test-kali-linux
-   ```
-
-5. Access the running container:
-
-   ```shell
-   docker exec -it test-kali bash
-   ```
-
-   You should now be inside the Kali Linux environment and can start using the installed tools.
-
-## TestUbuntu
-
-This Docker configuration sets up an Ubuntu environment with additional packages and configurations.
-
-### Usage
-
-To build and run the TestUbuntu container, follow these steps:
-
-1. Clone this repository:
-
-   ```shell
-   git clone https://github.com/fazrul96/Docker-Collection.git
-   ```
-
-2. Navigate to the `TestUbuntu` folder:
-
-   ```shell
-   cd TestUbuntu
-   ```
-
-3. Build the Docker image:
-
-   ```shell
-   docker build -t test-ubuntu .
-   ```
-
-4. Run the Docker container:
-
-   ```shell
-   docker run -d --name test-ubuntu-container test-ubuntu
-   ```
-
-5. Access the running container:
-
-   ```shell
-   docker exec -it test-ubuntu-container bash
-   ```
-
-   You should now be inside the Ubuntu environment and can start working with it.
-
-## Contributing
-
-If you would like to contribute to this Docker collection, feel free to submit a pull request.
+### TestUbuntu
+Dive into [Ubuntu](https://ubuntu.com/) Linux testing and exploration with this collection. Set up different Ubuntu environments to test software, configurations, and scripts on this widely-used Linux distribution.
